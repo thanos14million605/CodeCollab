@@ -3,13 +3,18 @@ const path = require("path");
 const { Server } = require("socket.io");
 require("dotenv").config();
 const express = require("express");
-
+const pool = require("./config/db");
 // Import app and socket handler
 const app = require("./app");
 const socketHandler = require("./socket/socketHandler");
 
 // Create HTTP server
 const server = http.createServer(app);
+
+pool
+  .query("SELECT NOW()")
+  .then((result) => console.log(`DB connection made at ${result.rows[0].now}`))
+  .catch((err) => console.log("Error in DB connection", err));
 
 // Create Socket.IO server
 const io = new Server(server, {
