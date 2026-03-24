@@ -490,7 +490,6 @@ function VideoSDKCallEnhanced({ roomCode, participants }) {
   // Accept incoming call
   const handleAcceptCall = (fromUserId, meetingId) => {
     videoCallBridge.acceptCall(fromUserId, meetingId);
-    console.log("📥 RECEIVED CALL:", data);
     // ❌ REMOVE THIS LINE
     // setMeetingId(meetingId);
 

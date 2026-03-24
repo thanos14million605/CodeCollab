@@ -1,9 +1,10 @@
 const Room = require("../models/Room");
+const Message = require("../models/Message");
 const { socketAuth } = require("../middleware/authMiddleware");
 
 // Store active rooms and their participants
-const activeRooms = new Map();
-const userSockets = new Map(); // userId -> socketId
+export const activeRooms = new Map();
+export const userSockets = new Map(); // userId -> socketId
 
 const socketHandler = (io) => {
   // Authentication middleware for Socket.IO
@@ -91,37 +92,33 @@ const socketHandler = (io) => {
     });
 
     // Handle chat messages
-    socket.on("chat-message", async (data) => {
-      try {
-        const { message } = data;
+    // socket.on("chat-message", async (data) => {
+    //   try {
+    //     const { message } = data;
 
-        if (socket.currentRoom) {
-          const messageData = {
-            id: require("uuid").v4(),
-            room_id: socket.currentRoom,
-            user_id: socket.user.id,
-            content: message,
-            message_type: "text",
-            created_at: new Date(),
-            user: {
-              id: socket.user.id,
-              name: socket.user.name,
-              role: socket.user.role,
-              avatar_url: socket.user.avatar_url,
-            },
-          };
+    //     if (socket.currentRoom) {
+    //       const messageData = {
+    //         id: require("uuid").v4(),
+    //         room_id: socket.currentRoom,
+    //         user_id: socket.user.id,
+    //         content: message,
+    //         message_type: "text",
+    //         created_at: new Date(),
+    //         user: {
+    //           id: socket.user.id,
+    //           name: socket.user.name,
+    //           role: socket.user.role,
+    //           avatar_url: socket.user.avatar_url,
+    //         },
+    //       };
 
-          // Broadcast message to all users in the room
-          io.to(socket.currentRoom).emit("chat-message", messageData);
-
-          // Store message in database (optional - for message history)
-          // await Message.create(messageData);
-        }
-      } catch (error) {
-        console.error("Error sending chat message:", error);
-        socket.emit("error", { message: "Failed to send message" });
-      }
-    });
+    //       // Broadcast message to all users in the room
+    //     }
+    //   } catch (error) {
+    //     console.error("Error sending chat message:", error);
+    //     socket.emit("error", { message: "Failed to send message" });
+    //   }
+    // });
 
     // Handle reactions
     socket.on("reaction", (data) => {

@@ -7,6 +7,7 @@ require("dotenv").config();
 // Import routes
 const authRoutes = require("./routes/auth");
 const roomRoutes = require("./routes/room");
+const messageRoutes = require("./routes/message");
 
 // Import middleware
 const { globalErrorHandler } = require("./middleware/globalErrorHandler");
@@ -79,6 +80,7 @@ app.get("/health", (req, res) => {
 // API routes
 app.use("/api/auth", authRoutes);
 app.use("/api/rooms", roomRoutes);
+app.use("/api/messages", messageRoutes);
 
 // Global error handler
 app.use(globalErrorHandler);

@@ -25,6 +25,8 @@ const io = new Server(server, {
   },
 });
 
+app.set("io", io);
+
 // Initialize socket handler
 socketHandler(io);
 
