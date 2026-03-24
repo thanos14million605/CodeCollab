@@ -3,8 +3,8 @@ const Message = require("../models/Message");
 const { socketAuth } = require("../middleware/authMiddleware");
 
 // Store active rooms and their participants
-export const activeRooms = new Map();
-export const userSockets = new Map(); // userId -> socketId
+const activeRooms = new Map();
+const userSockets = new Map(); // userId -> socketId
 
 const socketHandler = (io) => {
   // Authentication middleware for Socket.IO
