@@ -6,6 +6,7 @@ const express = require("express");
 const pool = require("./config/db");
 // Import app and socket handler
 const app = require("./app");
+const socketHandler = require("./socket/socketHandler");
 
 // Create HTTP server
 const server = http.createServer(app);
