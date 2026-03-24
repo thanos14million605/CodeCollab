@@ -11,10 +11,8 @@ const {
 const { authenticate } = require("../middleware/authMiddleware");
 
 // Routes
-router.post("/", authenticate);
+router.post("/", authenticate, createMessage);
 
-router.use(authenticate);
-router.route("/:roomId").get(getAllMessages);
-router.route("/").post(createMessage);
+router.get("/:roomId", authenticate, getAllMessages);
 
 module.exports = router;
