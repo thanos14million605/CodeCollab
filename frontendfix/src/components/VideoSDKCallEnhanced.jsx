@@ -479,7 +479,7 @@ function VideoSDKCallEnhanced({ roomCode, participants }) {
   const handleInitiateCall = async (caller, receiver) => {
     try {
       await videoCallBridge.initiateCall(caller, receiver);
-
+      console.log("📤 Sent call to:", receiver.user_id);
       // ❌ REMOVE THIS LINE (causes instant join)
       // setMeetingId(videoCallBridge.getActiveCalls().get(receiver.user_id));
     } catch (error) {
@@ -490,7 +490,7 @@ function VideoSDKCallEnhanced({ roomCode, participants }) {
   // Accept incoming call
   const handleAcceptCall = (fromUserId, meetingId) => {
     videoCallBridge.acceptCall(fromUserId, meetingId);
-
+    console.log("📥 RECEIVED CALL:", data);
     // ❌ REMOVE THIS LINE
     // setMeetingId(meetingId);
 
