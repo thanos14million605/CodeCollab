@@ -19,60 +19,6 @@ import { useAuthStore } from "../store/authStore";
 const Home = () => {
   const { isAuthenticated, user } = useAuthStore();
 
-  // const features = [
-  //   {
-  //     icon: Code,
-  //     title: "Real-time Code Collaboration",
-  //     description:
-  //       "Write and edit code together with your students in real-time. See changes instantly as they happen.",
-  //     color: "from-blue-500 to-blue-600",
-  //   },
-  //   {
-  //     icon: Video,
-  //     title: "Video Calling",
-  //     description:
-  //       "Connect face-to-face with students through built-in video calls. Perfect for one-on-one mentoring.",
-  //     color: "from-green-500 to-green-600",
-  //   },
-  //   {
-  //     icon: Users,
-  //     title: "Interactive Classrooms",
-  //     description:
-  //       "Create virtual classrooms where multiple students can join and learn together.",
-  //     color: "from-purple-500 to-purple-600",
-  //   },
-  //   {
-  //     icon: MessageSquare,
-  //     title: "Live Chat & Reactions",
-  //     description:
-  //       "Communicate through text chat and express reactions with emojis for better engagement.",
-  //     color: "from-pink-500 to-pink-600",
-  //   },
-  //   {
-  //     icon: Share2,
-  //     title: "Screen Sharing",
-  //     description:
-  //       "Share your screen to demonstrate concepts and guide students through complex problems.",
-  //     color: "from-orange-500 to-orange-600",
-  //   },
-  //   {
-  //     icon: Zap,
-  //     title: "Instant Feedback",
-  //     description:
-  //       "Provide immediate feedback on student code and help them learn faster.",
-  //     color: "from-yellow-500 to-yellow-600",
-  //   },
-  // ];
-
-  // const benefits = [
-  //   "No software installation required",
-  //   "Works on any modern browser",
-  //   "Secure and private classrooms",
-  //   "Support for multiple programming languages",
-  //   "Real-time collaboration tools",
-  //   "Professional development tracking",
-  // ];
-
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
